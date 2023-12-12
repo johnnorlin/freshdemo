@@ -15,6 +15,12 @@ app.use(
     origin: "*",
   })
 );
+app.get("/", (req, res) => {
+  // Send the 'index.html' file from the 'build' directory
+  console.log("hello!!");
+  res.sendFile(path.join(__dirname, "/usr/src/frontend/src/index.html"));
+});
+// app.get("/", res.status(200).send())
 
 app.use("/db", dbRouter);
 
@@ -23,7 +29,7 @@ app.all((req, res) => {
 });
 
 app.use((err, req, res, next) => {
-  let defaultError = {
+  let defaultErr = {
     log: "unknown middleware error",
     status: 500,
     message: { err: "an error occured" },
