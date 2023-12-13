@@ -15,12 +15,6 @@ app.use(
     origin: "*",
   })
 );
-app.get("/", (req, res) => {
-  // Send the 'index.html' file from the 'build' directory
-  console.log("hello!!");
-  res.sendFile(path.join(__dirname, "/usr/src/frontend/src/index.html"));
-});
-// app.get("/", res.status(200).send())
 
 app.use("/db", dbRouter);
 

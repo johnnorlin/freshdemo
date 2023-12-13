@@ -10,7 +10,7 @@ function App() {
     while (Date.now() < end) continue;
   };
 
-  const fetchUrl = "http://backend:3000/db";
+  const fetchUrl = "http://localhost:3000/db";
 
   useEffect(() => {
     //generate random number

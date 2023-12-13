@@ -17,7 +17,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
@@ -29,7 +29,6 @@ module.exports = {
     ],
   },
   devServer: {
-    host: "0.0.0.0",
-    allowedHosts: "all",
+    port: 8080,
   },
 };

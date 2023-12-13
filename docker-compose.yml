@@ -4,20 +4,23 @@ services:
   frontend:
     build:
       context: ./frontend
+    expose:
+      - "3001"
     ports:
-      - "80:80"
-    depends_on:
-      - "backend"
+      - "3001:8080"
+    networks:
+      - mern-network
 
   backend:
     build:
       context: ./server
+    expose:
+      - "3000"
     ports:
       - "3000:3000"
+    networks:
+      - mern-network
 
-  # postgres:
-  #   image: postgres:latest
-  #   env_file:
-  #     - .env
-  #   ports:
-  #     - "5432:5432"
+networks:
+  mern-network:
+    driver: bridge
