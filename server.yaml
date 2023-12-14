@@ -7,7 +7,9 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-    - port: 80 # ??
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
   selector:
     app: server
 ---
@@ -18,7 +20,7 @@ metadata:
   labels:
     app: server
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: server
@@ -31,4 +33,4 @@ spec:
         - name: server
           image: johnnorlin/demoapp:backend
           ports:
-            - containerPort: 80 #??
+            - containerPort: 8080 #??

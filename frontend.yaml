@@ -18,7 +18,7 @@ metadata:
   labels:
     app: frontend-app
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: frontend
@@ -32,4 +32,6 @@ spec:
           image: johnnorlin/demoapp:frontend
           imagePullPolicy: Always
           ports:
-            - containerPort: 80 #??
+            - protocol: TCP
+              port: 80
+              targetPort: 80
