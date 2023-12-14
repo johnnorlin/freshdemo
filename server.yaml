@@ -8,8 +8,8 @@ spec:
   type: LoadBalancer
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 8080
+      port: 8080
+      targetPort: 80
   selector:
     app: server
 ---
@@ -33,4 +33,4 @@ spec:
         - name: server
           image: johnnorlin/demoapp:backend
           ports:
-            - containerPort: 8080 #??
+            - containerPort: 8080
